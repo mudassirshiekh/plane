@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ["custom"],
+  extends: ["@plane/eslint-config/next.js"],
   rules: {
     "import/order": [
       "error",

@@ -66,6 +66,10 @@
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.10",
+    "@plane/eslint-config": "*",
+    "@plane/tailwind-config": "*",
+    "@plane/typescript-config": "*",
     "@types/dompurify": "^3.0.5",
     "@types/js-cookie": "^3.0.2",
     "@types/lodash": "^4.14.202",
@@ -76,10 +80,7 @@
     "@types/react-dom": "^18.2.18",
     "@types/uuid": "^8.3.4",
     "@types/zxcvbn": "^4.4.4",
-    "eslint-config-custom": "*",
     "prettier": "^3.2.5",
-    "tailwind-config-custom": "*",
-    "tsconfig": "*",
     "typescript": "5.4.5"
   }
 }

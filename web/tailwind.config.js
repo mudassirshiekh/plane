@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const sharedConfig = require("tailwind-config-custom/tailwind.config.js");
+const sharedConfig = require("@plane/tailwind-config/tailwind.config");
 
 module.exports = {
   presets: [sharedConfig],

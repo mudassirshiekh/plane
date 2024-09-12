@@ -110,8 +110,8 @@ export const getButtonStyling = (variant: TButtonVariant, size: TButtonSizes, di
   let tempVariant: string = ``;
   const currentVariant = buttonStyling[variant];
 
-  tempVariant = `${currentVariant.default} ${disabled ? currentVariant.disabled : currentVariant.hover} ${
-    currentVariant.pressed
+  tempVariant = `${currentVariant?.default} ${disabled ? currentVariant?.disabled : currentVariant?.hover} ${
+    currentVariant?.pressed
   }`;
 
   let tempSize: string = ``;

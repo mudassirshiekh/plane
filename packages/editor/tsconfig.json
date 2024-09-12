@@ -1,13 +1,19 @@
 {
-  "extends": "tsconfig/react-library.json",
-  "include": ["src/**/*", "index.d.ts"],
-  "exclude": ["dist", "build", "node_modules"],
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["ES2015", "DOM"],
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/core/*"],
       "@/styles/*": ["src/styles/*"],
       "@/plane-editor/*": ["src/ce/*"]
     }
-  }
+  },
+  "include": ["src/**/*", "index.d.ts"],
+  "exclude": ["dist", "build", "node_modules"]
 }

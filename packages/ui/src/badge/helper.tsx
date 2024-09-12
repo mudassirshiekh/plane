@@ -125,7 +125,7 @@ export const getBadgeStyling = (variant: TBadgeVariant, size: TBadgeSizes, disab
   let tempVariant: string = ``;
   const currentVariant = badgeStyling[variant];
 
-  tempVariant = `${currentVariant.default} ${disabled ? currentVariant.disabled : currentVariant.hover}`;
+  tempVariant = `${currentVariant?.default} ${disabled ? currentVariant?.disabled : currentVariant?.hover}`;
 
   let tempSize: string = ``;
   if (size) tempSize = badgeSizeStyling[size];

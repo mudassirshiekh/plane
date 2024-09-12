@@ -61,40 +61,41 @@ export type TIconsListProps = {
  * @returns {string} - The adjusted hex color code.
  */
 export const adjustColorForContrast = (hex: string): string => {
-  // Ensure hex color is valid
-  if (!/^#([0-9A-F]{3}){1,2}$/i.test(hex)) {
+  // Validate hex color code
+  if (!/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(hex)) {
     throw new Error("Invalid hex color code");
   }
 
+  // Helper function to convert hex to RGB
+  const hexToRgb = (hex: string): { r: number; g: number; b: number } => {
+    const expandHex = (shortHex: string): string =>
+      shortHex.length === 4 ? "#" + [...shortHex.slice(1)].map((ch) => ch + ch).join("") : shortHex;
+
+    const fullHex = expandHex(hex);
+    return {
+      r: parseInt(fullHex.slice(1, 3), 16),
+      g: parseInt(fullHex.slice(3, 5), 16),
+      b: parseInt(fullHex.slice(5, 7), 16),
+    };
+  };
+
+  // Helper function to convert RGB back to hex
+  const rgbToHex = ({ r, g, b }: { r: number; g: number; b: number }): string =>
+    `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("")}`;
+
   // Convert hex to RGB
-  let r = 0,
-    g = 0,
-    b = 0;
-  if (hex.length === 4) {
-    r = parseInt(hex[1] + hex[1], 16);
-    g = parseInt(hex[2] + hex[2], 16);
-    b = parseInt(hex[3] + hex[3], 16);
-  } else if (hex.length === 7) {
-    r = parseInt(hex[1] + hex[2], 16);
-    g = parseInt(hex[3] + hex[4], 16);
-    b = parseInt(hex[5] + hex[6], 16);
-  }
+  const { r, g, b } = hexToRgb(hex);
 
   // Calculate luminance
   const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
-  // If the color is too light, darken it
-  if (luminance > 0.5) {
-    r = Math.max(0, r - 50);
-    g = Math.max(0, g - 50);
-    b = Math.max(0, b - 50);
-  }
-
-  // Convert RGB back to hex
-  const toHex = (value: number): string => {
-    const hex = value.toString(16);
-    return hex.length === 1 ? "0" + hex : hex;
+  // Darken the color if luminance is too high
+  const adjustment = luminance > 0.5 ? -50 : 0;
+  const adjustedRgb = {
+    r: Math.max(0, r + adjustment),
+    g: Math.max(0, g + adjustment),
+    b: Math.max(0, b + adjustment),
   };
 
-  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+  return rgbToHex(adjustedRgb);
 };

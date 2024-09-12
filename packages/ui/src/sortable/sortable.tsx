@@ -44,10 +44,10 @@ const moveItem = <T,>(
     adjustedDestinationIndex = newData.length;
   }
 
-  newData.splice(adjustedDestinationIndex, 0, movedItem);
+  newData.splice(adjustedDestinationIndex, 0, movedItem as any);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { __uuid__: movedItemId, ...movedItemData } = movedItem;
+  const { __uuid__: movedItemId, ...movedItemData } = movedItem as any;
   return {
     newData: newData.map((item) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -89,7 +89,7 @@ export const Sortable = <T,>({ data, render, onChange, keyExtractor, containerCl
     <>
       {data.map((item, index) => (
         <Draggable
-          key={keyExtractor(enhancedData[index], index)}
+          key={keyExtractor(enhancedData[index] as T, index)}
           data={enhancedData[index]}
           className={containerClassName}
         >

@@ -57,14 +57,14 @@
     "@types/react-dom": "^18.2.17",
     "autoprefixer": "^10.4.19",
     "classnames": "^2.3.2",
-    "eslint-config-custom": "*",
+    "@plane/eslint-config": "*",
     "postcss-cli": "^11.0.0",
     "postcss-nested": "^6.0.1",
     "react": "^18.2.0",
     "storybook": "^8.1.1",
-    "tailwind-config-custom": "*",
+    "@plane/tailwind-config": "*",
     "tailwindcss": "^3.4.3",
-    "tsconfig": "*",
+    "@plane/typescript-config": "*",
     "tsup": "^7.2.0",
     "typescript": "5.4.5"
   }

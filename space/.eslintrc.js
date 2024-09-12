@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ["custom"],
+  extends: ["@plane/eslint-config/next.js"],
   parser: "@typescript-eslint/parser",
   settings: {
     "import/resolver": {
@@ -14,7 +14,7 @@ module.exports = {
     "import/order": [
       "error",
       {
-        groups: ["builtin", "external", "internal", "parent", "sibling",],
+        groups: ["builtin", "external", "internal", "parent", "sibling"],
         pathGroups: [
           {
             pattern: "react",
@@ -39,7 +39,7 @@ module.exports = {
           {
             pattern: "@/**",
             group: "internal",
-          }
+          },
         ],
         pathGroupsExcludedImportTypes: ["builtin", "internal", "react"],
         alphabetize: {

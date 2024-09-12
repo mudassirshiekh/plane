@@ -106,9 +106,9 @@ const ContextMenuWithoutPortal: React.FC<ContextMenuProps> = (props) => {
       if (e.key === "Enter") {
         e.preventDefault();
         const item = renderedItems[activeItemIndex];
-        if (!item.disabled) {
-          renderedItems[activeItemIndex].action();
-          if (item.closeOnClick !== false) handleClose();
+        if (!item?.disabled) {
+          renderedItems[activeItemIndex]?.action();
+          if (item?.closeOnClick !== false) handleClose();
         }
       }
     };

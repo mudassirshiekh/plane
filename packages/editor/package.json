@@ -3,28 +3,12 @@
   "version": "0.22.0",
   "description": "Core Editor that powers Plane",
   "private": true,
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
-  "files": [
-    "dist/**/*"
-  ],
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs",
-      "module": "./dist/index.mjs"
-    },
-    "./lib": {
-      "require": "./dist/lib.js",
-      "types": "./dist/lib.d.mts",
-      "import": "./dist/lib.mjs",
-      "module": "./dist/lib.mjs"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
-    "build": "tsup --minify",
-    "dev": "tsup --watch",
+    "build": "tsc",
+    "dev": "tsc --watch",
     "check-types": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
@@ -74,10 +58,10 @@
     "@types/node": "18.15.3",
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
-    "eslint-config-custom": "*",
+    "@plane/eslint-config": "*",
     "postcss": "^8.4.38",
-    "tailwind-config-custom": "*",
-    "tsconfig": "*",
+    "@plane/tailwind-config": "*",
+    "@plane/typescript-config": "*",
     "tsup": "^7.2.0",
     "typescript": "5.4.5"
   },

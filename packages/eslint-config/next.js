@@ -1,20 +1,36 @@
+const { resolve } = require("node:path");
+
+const project = resolve(process.cwd(), "tsconfig.json");
+
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["next", "prettier", "plugin:@typescript-eslint/recommended"],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: 2021, // Or the ECMAScript version you are using
-    sourceType: "module", // Or 'script' if you're using CommonJS or other modules
+  extends: [
+    "eslint:recommended",
+    "prettier",
+    require.resolve("@vercel/style-guide/eslint/next"),
+    "turbo",
+  ],
+  globals: {
+    React: true,
+    JSX: true,
   },
-  plugins: ["react", "@typescript-eslint", "import"],
+  env: {
+    node: true,
+  },
+  plugins: ["only-warn"],
   settings: {
-    next: {
-      rootDir: ["."],
+    "import/resolver": {
+      typescript: {
+        project,
+      },
     },
   },
-  globals: {
-    React: "readonly",
-    JSX: "readonly",
-  },
+  ignorePatterns: [
+    // Ignore dotfiles
+    ".*.js",
+    "node_modules/",
+  ],
+  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   rules: {
     "no-useless-escape": "off",
     "prefer-const": "error",

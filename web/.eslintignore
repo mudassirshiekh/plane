@@ -1,3 +1,5 @@
 .next/*
+.turbo/*
 out/*
 public/*
+node_modules/*
