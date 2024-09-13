@@ -1,12 +1,15 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@plane/typescript-config/base.json",
   "compilerOptions": {
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "jsx": "react-jsx",
-    "lib": ["ES2015", "DOM"],
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/core/*"],
@@ -14,6 +17,6 @@
       "@/plane-editor/*": ["src/ce/*"]
     }
   },
-  "include": ["src/**/*", "index.d.ts"],
+  "include": ["src/**/*"],
   "exclude": ["dist", "build", "node_modules"]
 }

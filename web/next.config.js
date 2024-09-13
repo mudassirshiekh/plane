@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import("next").NextConfig} */
 require("dotenv").config({ path: ".env" });
 // const path = require("path");

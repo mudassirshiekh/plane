@@ -3,13 +3,26 @@
   "version": "0.22.0",
   "description": "Core Editor that powers Plane",
   "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./lib": {
+      "require": "./dist/lib.js",
+      "types": "./dist/lib.d.mts",
+      "import": "./dist/lib.mjs",
+      "module": "./dist/lib.mjs"
+    }
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "check-types": "tsc --noEmit",
+    "build": "tsup --minify",
+    "dev": "tsup --watch",
+    "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "peerDependencies": {
