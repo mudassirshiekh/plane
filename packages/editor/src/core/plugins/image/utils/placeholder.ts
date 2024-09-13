@@ -7,7 +7,8 @@ import { uploadKey } from "@/plugins/image";
 export function findPlaceholder(state: EditorState, id: string): number | null {
   const decos = uploadKey.getState(state) as DecorationSet;
   const found = decos.find(undefined, undefined, (spec: { id: string }) => spec.id === id);
-  return found.length ? found[0].from : null;
+  const placeholder = found?.length ? found?.[0]?.from : null;
+  return placeholder ?? null;
 }
 
 export function removePlaceholder(editor: Editor, view: EditorView, id: string) {

@@ -20,7 +20,7 @@ export const useEditorMarkings = () => {
     let h3Sequence: number = 0;
 
     headings.forEach((heading) => {
-      const level = parseInt(heading.tagName[1]); // Extract the number from h1, h2, h3
+      const level = Number(heading.tagName[1]); // Extract the number from h1, h2, h3
       tempMarkings.push({
         type: "heading",
         level: level,

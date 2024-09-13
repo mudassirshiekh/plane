@@ -148,7 +148,7 @@ export const insertImageCommand = (
   input.type = "file";
   input.accept = ".jpeg, .jpg, .png, .webp";
   input.onchange = async () => {
-    if (input.files?.length) {
+    if (input.files?.[0]) {
       const file = input.files[0];
       const pos = savedSelection?.anchor ?? editor.view.state.selection.from;
       startImageUpload(editor, file, editor.view, pos, uploadFile);

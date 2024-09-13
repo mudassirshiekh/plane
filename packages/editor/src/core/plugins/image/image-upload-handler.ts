@@ -79,7 +79,11 @@ export async function startImageUpload(
     }
     const imageSrc = typeof src === "object" ? reader.result : src;
 
-    const node = schema.nodes.image.create({ src: imageSrc });
+    const node = schema.nodes.image?.create({ src: imageSrc });
+
+    if (!node) {
+      throw new Error("Unable to get image node.");
+    }
 
     if (pos < 0 || pos > view.state.doc.content.size) {
       throw new Error("Invalid position to insert the image node.");
