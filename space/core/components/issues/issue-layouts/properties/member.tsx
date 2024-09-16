@@ -38,8 +38,8 @@ export const ButtonAvatars: React.FC<AvatarProps> = observer((props: AvatarProps
     } else if (members.length === 1) {
       return (
         <Avatar
-          src={members[0].member__avatar}
-          name={members[0].member__display_name}
+          src={members[0]?.member__avatar}
+          name={members[0]?.member__display_name}
           size="md"
           showTooltip={!showTooltip}
         />

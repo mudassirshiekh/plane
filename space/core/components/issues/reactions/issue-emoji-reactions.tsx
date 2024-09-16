@@ -107,7 +107,7 @@ export const IssueEmojiReactions: React.FC<IssueEmojiReactionsProps> = observer(
                       : ""
                   }
                 >
-                  {groupedReactions?.[reaction].length}{" "}
+                  {groupedReactions?.[reaction]?.length}{" "}
                 </span>
               </button>
             </Tooltip>

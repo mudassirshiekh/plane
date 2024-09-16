@@ -231,8 +231,9 @@ export const isSubGrouped = (groupedIssueIds: TGroupedIssues) => {
   if (!groupedIssueIds || Array.isArray(groupedIssueIds)) {
     return false;
   }
+  const issue = Object.keys(groupedIssueIds)[0];
 
-  if (Array.isArray(groupedIssueIds[Object.keys(groupedIssueIds)[0]])) {
+  if (issue && Array.isArray(groupedIssueIds[issue])) {
     return false;
   }
 

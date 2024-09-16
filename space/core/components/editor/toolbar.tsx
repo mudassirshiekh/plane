@@ -60,7 +60,7 @@ export const IssueCommentToolbar: React.FC<Props> = (props) => {
                 "pr-0": index === Object.keys(toolbarItems).length - 1,
               })}
             >
-              {toolbarItems[key].map((item) => (
+              {toolbarItems[key]?.map((item) => (
                 <Tooltip
                   key={item.key}
                   tooltipContent={

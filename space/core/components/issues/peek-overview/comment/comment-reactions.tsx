@@ -35,7 +35,7 @@ export const CommentReactions: React.FC<Props> = observer((props) => {
   const { data: user } = useUser();
   const isInIframe = useIsInIframe();
 
-  const commentReactions = peekId ? details[peekId].comments.find((c) => c.id === commentId)?.comment_reactions : [];
+  const commentReactions = peekId ? details[peekId]?.comments?.find((c) => c.id === commentId)?.comment_reactions : [];
   const groupedReactions = peekId ? groupReactions(commentReactions ?? [], "reaction") : {};
 
   const userReactions = commentReactions?.filter((r) => r?.actor_detail?.id === user?.id);
@@ -118,7 +118,7 @@ export const CommentReactions: React.FC<Props> = observer((props) => {
                       : ""
                   }
                 >
-                  {groupedReactions?.[reaction].length}{" "}
+                  {groupedReactions?.[reaction]?.length}{" "}
                 </span>
               </button>
             </Tooltip>

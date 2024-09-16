@@ -7,5 +7,5 @@ import { PublishStore } from "@/store/publish/publish.store";
 export const usePublish = (anchor: string): PublishStore => {
   const context = useContext(StoreContext);
   if (context === undefined) throw new Error("usePublish must be used within StoreProvider");
-  return context.publishList.publishMap?.[anchor] ?? {};
+  return context.publishList.publishMap?.[anchor] ?? ({} as PublishStore);
 };
