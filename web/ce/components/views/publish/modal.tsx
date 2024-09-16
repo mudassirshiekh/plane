@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 "use client";
 
 import { IProjectView } from "@plane/types";
@@ -8,5 +10,4 @@ type Props = {
   onClose: () => void;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const PublishViewModal = (props: Props) => <></>;

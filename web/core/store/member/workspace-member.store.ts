@@ -282,7 +282,7 @@ export class WorkspaceMemberStore implements IWorkspaceMemberStore {
     invitationId: string,
     data: Partial<IWorkspaceMemberInvitation>
   ) => {
-    const originalMemberInvitations = [...this.workspaceMemberInvitations?.[workspaceSlug]]; // in case of error, we will revert back to original members
+    const originalMemberInvitations = this.workspaceMemberInvitations?.[workspaceSlug] || []; // in case of error, we will revert back to original members
     try {
       const memberInvitations = originalMemberInvitations?.map((invitation) => ({
         ...invitation,
@@ -310,7 +310,7 @@ export class WorkspaceMemberStore implements IWorkspaceMemberStore {
   deleteMemberInvitation = async (workspaceSlug: string, invitationId: string) =>
     await this.workspaceService.deleteWorkspaceInvitations(workspaceSlug.toString(), invitationId).then(() => {
       runInAction(() => {
-        this.workspaceMemberInvitations[workspaceSlug] = this.workspaceMemberInvitations[workspaceSlug].filter(
+        this.workspaceMemberInvitations[workspaceSlug] = (this.workspaceMemberInvitations[workspaceSlug] || []).filter(
           (inv) => inv.id !== invitationId
         );
       });

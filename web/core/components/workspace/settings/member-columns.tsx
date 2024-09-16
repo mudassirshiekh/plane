@@ -31,7 +31,7 @@ export const NameColumn: React.FC<NameProps> = (props) => {
   const { rowData, workspaceSlug, isAdmin, currentUser, setRemoveMemberModal } = props;
   return (
     <Disclosure>
-      {({}) => (
+      {() => (
         <div className="relative group">
           <div className="flex items-center gap-x-4 gap-y-2 w-72 justify-between">
             <div className="flex items-center gap-x-4 gap-y-2 flex-1">

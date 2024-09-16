@@ -11,7 +11,6 @@ import { NotificationSnoozeModal } from "@/components/workspace-notifications";
 import { NOTIFICATION_SNOOZE_OPTIONS } from "@/constants/notification";
 import { cn } from "@/helpers/common.helper";
 // hooks
-import { useWorkspaceNotifications } from "@/hooks/store";
 import { usePlatformOS } from "@/hooks/use-platform-os";
 // store
 import { INotification } from "@/store/notifications/notification";
@@ -28,7 +27,6 @@ export const NotificationItemSnoozeOption: FC<TNotificationItemSnoozeOption> = o
   const { workspaceSlug, notification, setIsSnoozeStateModalOpen, customSnoozeModal, setCustomSnoozeModal } = props;
   // hooks
   const { isMobile } = usePlatformOS();
-  const {} = useWorkspaceNotifications();
   const { asJson: data, snoozeNotification, unSnoozeNotification } = notification;
 
   const handleNotificationSnoozeDate = async (snoozeTill: Date | undefined) => {
