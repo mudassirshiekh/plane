@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { TPublishViewSettings } from "@plane/types";
 import { EViewAccess } from "@/constants/views";
 import { API_BASE_URL } from "@/helpers/common.helper";

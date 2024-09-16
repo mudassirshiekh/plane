@@ -10,12 +10,12 @@ import { PAST_DURATION_FILTER_OPTIONS } from "@/helpers/inbox.helper";
 // hooks
 import { useProjectInbox } from "@/hooks/store";
 
-type InboxIssueAppliedFiltersDate = {
+type InboxIssueAppliedFiltersDateProps = {
   filterKey: TInboxIssueFilterDateKeys;
   label: string;
 };
 
-export const InboxIssueAppliedFiltersDate: FC<InboxIssueAppliedFiltersDate> = observer((props) => {
+export const InboxIssueAppliedFiltersDate: FC<InboxIssueAppliedFiltersDateProps> = observer((props) => {
   const { filterKey, label } = props;
   // hooks
   const { inboxFilters, handleInboxIssueFilters } = useProjectInbox();
@@ -25,8 +25,9 @@ export const InboxIssueAppliedFiltersDate: FC<InboxIssueAppliedFiltersDate> = ob
     const currentDate = PAST_DURATION_FILTER_OPTIONS.find((d) => d.value === date);
     if (currentDate) return currentDate;
     const dateSplit = date.split(";");
+    if (dateSplit.length !== 2) return;
     return {
-      name: `${dateSplit[1].charAt(0).toUpperCase() + dateSplit[1].slice(1)} ${renderFormattedDate(dateSplit[0])}`,
+      name: `${dateSplit[1].charAt(0).toUpperCase() + dateSplit[1]?.slice(1)} ${renderFormattedDate(dateSplit[0])}`,
       value: date,
     };
   };

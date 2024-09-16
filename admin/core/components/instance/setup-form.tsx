@@ -52,8 +52,7 @@ const defaultFromData: TFormData = {
   is_telemetry_enabled: true,
 };
 
-export const InstanceSetupForm: FC = (props) => {
-  const {} = props;
+export const InstanceSetupForm: FC = () => {
   // search params
   const searchParams = useSearchParams();
   const firstNameParam = searchParams.get("first_name") || undefined;

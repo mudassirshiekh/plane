@@ -6,5 +6,5 @@ type Props = {
   publishSettings: PublishStore;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 export const ViewLayoutsRoot = (props: Props) => <PageNotFound />;

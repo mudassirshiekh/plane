@@ -27,7 +27,7 @@ export interface IWorkspaceMemberStore {
   workspaceMemberInvitations: Record<string, IWorkspaceMemberInvitation[]>;
   // computed
   workspaceMemberIds: string[] | null;
-  workspaceMemberInvitationIds: string[] | null;
+  workspaceMemberInvitationIds: string[] | null | undefined;
   memberMap: Record<string, IWorkspaceMembership> | null;
   // computed actions
   getSearchedWorkspaceMemberIds: (searchQuery: string) => string[] | null;

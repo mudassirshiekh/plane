@@ -34,7 +34,6 @@ export const IssueActivityItem: FC<TIssueActivityItem> = observer((props) => {
   // hooks
   const {
     activity: { getActivityById },
-    comment: {},
   } = useIssueDetail();
 
   const componentDefaultProps = { activityId, ends };

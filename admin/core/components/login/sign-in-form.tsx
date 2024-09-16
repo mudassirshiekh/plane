@@ -8,13 +8,7 @@ import { Button, Input, Spinner } from "@plane/ui";
 // components
 import { Banner } from "@/components/common";
 // helpers
-import {
-  authErrorHandler,
-  EAuthenticationErrorCodes,
-  EErrorAlertType,
-  TAuthErrorInfo,
-} from "@/helpers/authentication.helper";
-
+import { authErrorHandler, EAuthenticationErrorCodes, TAuthErrorInfo } from "@/helpers/authentication.helper";
 import { API_BASE_URL } from "@/helpers/common.helper";
 import { AuthService } from "@/services/auth.service";
 import { AuthBanner } from "../authentication";
@@ -49,8 +43,7 @@ const defaultFromData: TFormData = {
   password: "",
 };
 
-export const InstanceSignInForm: FC = (props) => {
-  const {} = props;
+export const InstanceSignInForm: FC = () => {
   // search params
   const searchParams = useSearchParams();
   const emailParam = searchParams.get("email") || undefined;

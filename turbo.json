@@ -2,6 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": [
     "NODE_ENV",
+    "NEXT_RUNTIME",
     "NEXT_PUBLIC_API_BASE_URL",
     "NEXT_PUBLIC_ADMIN_BASE_URL",
     "NEXT_PUBLIC_ADMIN_BASE_PATH",
@@ -26,7 +27,8 @@
     "SENTRY_MONITORING_ENABLED",
     "NEXT_PUBLIC_PRO_PLAN_MONTHLY_PAYMENT_URL",
     "NEXT_PUBLIC_PRO_PLAN_YEARLY_PAYMENT_URL",
-    "NEXT_PUBLIC_PLANE_ONE_PAYMENT_URL"
+    "NEXT_PUBLIC_PLANE_ONE_PAYMENT_URL",
+    "NEXT_PUBLIC_LIVE_BASE_PATH"
   ],
   "tasks": {
     "build": {

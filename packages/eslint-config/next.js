@@ -4,12 +4,7 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: [
-    "eslint:recommended",
-    "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
-    "turbo",
-  ],
+  extends: ["eslint:recommended", "next", "prettier", "turbo"],
   globals: {
     React: true,
     JSX: true,
@@ -17,7 +12,8 @@ module.exports = {
   env: {
     node: true,
   },
-  plugins: ["only-warn"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -40,15 +36,19 @@ module.exports = {
     "no-useless-catch": "warn",
     "no-case-declarations": "error",
     "no-undef": "error",
+    "valid-typeof": "off",
+    "no-prototype-builtins": "off",
     "no-unreachable": "error",
     "arrow-body-style": ["error", "as-needed"],
     "@next/next/no-html-link-for-pages": "off",
     "@next/next/no-img-element": "off",
+    "no-extra-boolean-cast": ["warn", { enforceForLogicalOperands: true }],
     "react/jsx-key": "error",
     "react/self-closing-comp": ["error", { component: true, html: true }],
     "react/jsx-boolean-value": "error",
     "react/jsx-no-duplicate-props": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "getter-return": ["warn", { allowImplicit: false }],
     "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-useless-empty-export": "error",

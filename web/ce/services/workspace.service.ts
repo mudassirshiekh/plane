@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { EViewAccess } from "@/constants/views";
 import { API_BASE_URL } from "@/helpers/common.helper";
 import { WorkspaceService as CoreWorkspaceService } from "@/services/workspace.service";

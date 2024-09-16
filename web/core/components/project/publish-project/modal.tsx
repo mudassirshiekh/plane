@@ -118,9 +118,9 @@ export const PublishProjectModal: React.FC<Props> = observer((props) => {
   };
 
   const selectedLayouts = Object.entries(watch("view_props") ?? {})
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
     .filter(([key, value]) => value)
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
     .map(([key, value]) => key)
     .filter((l) => VIEW_OPTIONS.find((o) => o.key === l));
 

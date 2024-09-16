@@ -29,7 +29,6 @@ export const IssueActivityCommentRoot: FC<TIssueActivityCommentRoot> = observer(
   // hooks
   const {
     activity: { getActivityCommentByIssueId },
-    comment: {},
   } = useIssueDetail();
 
   const activityComments = getActivityCommentByIssueId(issueId);

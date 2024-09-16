@@ -8,12 +8,12 @@ import { Avatar, Tag } from "@plane/ui";
 // hooks
 import { useMember, useProjectInbox } from "@/hooks/store";
 
-type InboxIssueAppliedFiltersMember = {
+type InboxIssueAppliedFiltersMemberProps = {
   filterKey: TInboxIssueFilterMemberKeys;
   label: string;
 };
 
-export const InboxIssueAppliedFiltersMember: FC<InboxIssueAppliedFiltersMember> = observer((props) => {
+export const InboxIssueAppliedFiltersMember: FC<InboxIssueAppliedFiltersMemberProps> = observer((props) => {
   const { filterKey, label } = props;
   // hooks
   const { inboxFilters, handleInboxIssueFilters } = useProjectInbox();

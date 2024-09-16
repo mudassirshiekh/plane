@@ -15,7 +15,7 @@ import { PROJECT_DELETED } from "@/constants/event-tracker";
 import { useEventTracker, useProject } from "@/hooks/store";
 import { useAppRouter } from "@/hooks/use-app-router";
 
-type DeleteProjectModal = {
+type DeleteProjectModalProps = {
   isOpen: boolean;
   project: IProject;
   onClose: () => void;
@@ -26,7 +26,7 @@ const defaultValues = {
   confirmDelete: "",
 };
 
-export const DeleteProjectModal: React.FC<DeleteProjectModal> = (props) => {
+export const DeleteProjectModal: React.FC<DeleteProjectModalProps> = (props) => {
   const { isOpen, project, onClose } = props;
   // store hooks
   const { captureProjectEvent } = useEventTracker();
