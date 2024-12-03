@@ -93,11 +93,6 @@ export const SidebarFavoritesMenu = observer(() => {
       if (parentId && parentId !== sourceData.parentId) {
         handleMoveToFolder(sourceData.id, parentId);
       }
-      //handle remove from folder if dropped outside of the folder
-      if (parentId && parentId !== sourceData.parentId && sourceData.isChild) {
-        handleRemoveFromFavoritesFolder(sourceData.id);
-      }
-
       // handle reordering at root level
       if (droppedFavId) {
         if (instruction != "make-child") {
@@ -109,11 +104,10 @@ export const SidebarFavoritesMenu = observer(() => {
       if (droppedFavId) {
         handleReorder(sourceData.id, droppedFavId, instruction);
       }
-
-      // handle removal from folder if dropped outside a folder
-      if (!parentId && sourceData.isChild) {
-        handleRemoveFromFavoritesFolder(sourceData.id);
-      }
+    }
+    // handling remove from folder
+    if (!parentId && sourceData.isChild) {
+      handleRemoveFromFavoritesFolder(sourceData.id);
     }
   };
 
