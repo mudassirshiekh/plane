@@ -255,24 +255,26 @@ export const SidebarFavoritesMenu = observer(() => {
                       disabled={!sidebarCollapsed}
                       isMobile={isMobile}
                     >
-                      {fav.is_folder ? (
-                        <FavoriteFolder
-                          favorite={fav}
-                          isLastChild={index === length - 1}
-                          handleRemoveFromFavorites={handleRemoveFromFavorites}
-                          handleRemoveFromFavoritesFolder={handleRemoveFromFavoritesFolder}
-                          handleDrop={handleDrop}
-                        />
-                      ) : (
-                        <FavoriteRoot
-                          workspaceSlug={workspaceSlug.toString()}
-                          favorite={fav}
-                          isLastChild={index === length - 1}
-                          parentId={undefined}
-                          handleRemoveFromFavorites={handleRemoveFromFavorites}
-                          handleDrop={handleDrop}
-                        />
-                      )}
+                      <>
+                        {fav.is_folder ? (
+                          <FavoriteFolder
+                            favorite={fav}
+                            isLastChild={index === length - 1}
+                            handleRemoveFromFavorites={handleRemoveFromFavorites}
+                            handleRemoveFromFavoritesFolder={handleRemoveFromFavoritesFolder}
+                            handleDrop={handleDrop}
+                          />
+                        ) : (
+                          <FavoriteRoot
+                            workspaceSlug={workspaceSlug.toString()}
+                            favorite={fav}
+                            isLastChild={index === length - 1}
+                            parentId={undefined}
+                            handleRemoveFromFavorites={handleRemoveFromFavorites}
+                            handleDrop={handleDrop}
+                          />
+                        )}
+                      </>
                     </Tooltip>
                   ))
               )}
