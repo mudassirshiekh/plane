@@ -58,6 +58,7 @@ If you would like to self-host Plane, please see our [deployment guide](https://
 `Instance admins` can configure instance settings with [God-mode](https://docs.plane.so/instance-admin).
 
 ## 🚀 Features
+## By Mudassir Alam
 
 - **Issues**: Quickly create issues and add details using a powerful rich text editor that supports file uploads. Add sub-properties and references to problems for better organization and tracking.
 
